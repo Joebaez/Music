@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Reproductor de Música</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: #222;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        audio {
+            width: 100%;
+            max-width: 400px;
+            margin-top: 20px;
+        }
+        h1 {
+            margin-bottom: 10px;
+        }
+        select {
+            padding: 10px;
+            font-size: 16px;
+            margin-top: 10px;
+            width: 100%;
+            max-width: 400px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Reproductor de Música</h1>
+
+    <select id="playlist">
+        
+    
+
+        <option value="LLEVAME AL LUGAR SANTISIMO.mp3">Canción 1</option>
+        <option value="cancion2.mp3">Canción 2</option>
+        <option value="cancion3.mp3">Canción 3</option>
+    </select>
+
+    <audio id="player" controls>
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <script>
+        const player = document.getElementById('player');
+        const playlist = document.getElementById('playlist');
+
+        // Carga la canción seleccionada
+        playlist.addEventListener('change', () => {
+            player.src = playlist.value;
+            player.play();
+        });
+
+        // Carga la primera canción al iniciar
+        window.onload = () => {
+            player.src = playlist.value;
+        };
+
+        
+    </script>
+
+</body>
+</html>
